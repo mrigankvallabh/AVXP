@@ -4,7 +4,7 @@
   "description": "Advanced Express Webapp",
   "main": "index.js",
   "scripts": {
-    "start": "node bin",
+    "start": "cross-env NODE_ENV=production node bin",
     "start:dev": "nodemon bin",
     "test": "mocha --exit --recursive specs/"
   },
@@ -16,6 +16,7 @@
   "author": "Mrigank B Singh",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "http-errors": "^2.0.0",
