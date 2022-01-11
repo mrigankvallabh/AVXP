@@ -3,7 +3,7 @@
 ## Before running the application
 1. Run `npm install` to install the dependencies
 
-* Rename `.env.example` to `.env` and provide suitable values
+1. Rename `.env.example` to `.env` and provide suitable values
  
 ## For testing
 ```
