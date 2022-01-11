@@ -1,0 +1,29 @@
+{
+  "name": "avxp",
+  "version": "1.0.0",
+  "description": "Advanced Express Webapp",
+  "main": "index.js",
+  "scripts": {
+    "start": "node bin",
+    "start:dev": "nodemon bin",
+    "test": "mocha --exit --recursive specs/"
+  },
+  "keywords": [
+    "NodeJs",
+    "Express",
+    "JavaScript"
+  ],
+  "author": "Mrigank B Singh",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.2",
+    "http-errors": "^2.0.0",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "chai-http": "^4.3.0",
+    "mocha": "^9.1.3"
+  }
+}
