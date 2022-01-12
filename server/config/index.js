@@ -10,14 +10,23 @@ const data = {
 module.exports = {
   development: {
     sitename: 'Yusen Meetups [Development]',
-    data: data
+    data: data,
+    database: {
+      dsn: process.env.DEVELOPMENT_DB_DSN
+    }
   },
   test: {
     sitename: 'Yusen Meetups [Test]',
-    data: data
+    data: data,
+    database: {
+      dsn: process.env.TEST_DB_DSN
+    }
   },
   production: {
     sitename: 'Yusen Meetups [Development]',
-    data: data
+    data: data,
+    database: {
+      dsn: process.env.PRODUCTION_DB_DSN
+    }
   },
 };

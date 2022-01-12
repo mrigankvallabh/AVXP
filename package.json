@@ -16,14 +16,19 @@
   "author": "Mrigank B Singh",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
+    "email-validator": "^2.0.4",
     "express": "^4.17.2",
     "http-errors": "^2.0.0",
+    "mongodb": "^4.3.0",
+    "mongoose": "^6.1.6",
     "pug": "^3.0.2"
   },
   "devDependencies": {
     "chai": "^4.3.4",
+    "chai-as-promised": "^7.1.1",
     "chai-http": "^4.3.0",
     "mocha": "^9.1.3"
   }

@@ -1,9 +1,9 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 // const { expect } = require('chai'); // ? if you want to use expect assertions
-require('chai').should(); // ? if you want to use should assertions
+chai.should(); // ? if you want to use should assertions
 
-const config = require('./helper');
+const {config} = require('./helper');
 const app = require('../server/app')(config);
 
 chai.use(chaiHttp);
