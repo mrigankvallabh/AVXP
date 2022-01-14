@@ -1,11 +1,15 @@
 const path = require('path');
 
 const express = require('express');
+const cookieParser = require('cookie-parser');
+const session = require('express-session');
 const createError = require('http-errors');
+const MongoStore = require('connect-mongo');
 
 const SpeakerService = require('./services/SpeakerService');
 const FeedbackService = require('./services/FeedbackService');
 const routes = require('./routes');
+const auth = require('./lib/auth');
 
 function app(config) {
   const app = express();
@@ -20,7 +24,23 @@ function app(config) {
   app.get('/favicon.ico', (_req, res) => res.sendStatus(204)); // * No Content
 
   app.use(express.urlencoded({ extended: true }));
+  app.use(cookieParser());
+  app.use(session({
+    secret: 'somesecret',
+    resave: false,
+    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: config.database.dsn,
+      stringify: false,
+      autoRemove: 'interval',
+      autoRemoveInterval: 1
+    })
+  }));
 
+  app.use(auth.initialize);
+  app.use(auth.session);
+  app.use(auth.setUser);
+  
   // * Middleware to set speakerNames
   app.use(async (_req, res, next) => {
     try {

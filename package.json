@@ -17,13 +17,18 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
     "dotenv": "^10.0.0",
     "email-validator": "^2.0.4",
     "express": "^4.17.2",
+    "express-session": "^1.17.2",
     "http-errors": "^2.0.0",
     "mongodb": "^4.3.0",
     "mongoose": "^6.1.6",
+    "passport": "^0.5.2",
+    "passport-local": "^1.0.0",
     "pug": "^3.0.2"
   },
   "devDependencies": {

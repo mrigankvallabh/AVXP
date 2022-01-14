@@ -32,14 +32,14 @@ const validUser = {
 };
 
 async function createUser(agent, user) {
-  agent
+  return agent
     .post('/users/registration')
     .set('content-type', 'application/x-www-form-urlencoded')
     .send(user);
 }
 
 async function loginUser(agent, email, password) {
-  agent
+  return agent
     .post('/users/login')
     .set('content-type', 'application/x-www-form-urlencoded')
     .send({ email, password });
