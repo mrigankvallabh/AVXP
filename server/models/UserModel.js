@@ -31,6 +31,9 @@ const UserSchema = Schema(
       index: { unique: true },
       minlength: 8,
     },
+    avatar: {
+      type: String
+    }
   },
   {
     timestamps: true
