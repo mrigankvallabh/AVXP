@@ -1,6 +1,8 @@
 const path = require('path');
 
 const express = require('express');
+const compression = require('compression');
+const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const createError = require('http-errors');
@@ -15,6 +17,8 @@ const auth = require('./lib/auth');
 
 function app(config) {
   const app = express();
+  app.use(helmet());
+  app.use(compression());
   app.locals.title = config.sitename;
   const speakers = new SpeakerService(config.data.speakers);
   const feedback = new FeedbackService(config.data.feedback);

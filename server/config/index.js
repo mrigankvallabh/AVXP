@@ -1,5 +1,21 @@
 const path = require('path');
 require('dotenv').config();
+const bunyan = require('bunyan');
+
+const loggers = {
+  development: () => bunyan.createLogger({
+    name: 'development',
+    level: 'debug'
+  }),
+  test: () => bunyan.createLogger({
+    name: 'test',
+    level: 'fatal'
+  }),
+  production: () => bunyan.createLogger({
+    name: 'production',
+    level: 'info'
+  }),
+};
 
 const data = {
   speakers: path.join(__dirname, '../data/speakers.json'),
@@ -10,6 +26,7 @@ const data = {
 module.exports = {
   development: {
     sitename: 'Yusen Meetups [Development]',
+    log: loggers.development,
     data: data,
     database: {
       dsn: process.env.DEVELOPMENT_DB_DSN
@@ -17,6 +34,7 @@ module.exports = {
   },
   test: {
     sitename: 'Yusen Meetups [Test]',
+    log: loggers.test,
     data: data,
     database: {
       dsn: process.env.TEST_DB_DSN
@@ -24,6 +42,7 @@ module.exports = {
   },
   production: {
     sitename: 'Yusen Meetups [Development]',
+    log: loggers.production,
     data: data,
     database: {
       dsn: process.env.PRODUCTION_DB_DSN

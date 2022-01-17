@@ -4,9 +4,9 @@
   "description": "Advanced Express Webapp",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node bin",
-    "start:dev": "nodemon bin",
-    "test": "mocha --exit --recursive specs/"
+    "start": "cross-env NODE_ENV=production node bin | bunyan",
+    "start:dev": "cross-env NODE_ENV=development nodemon bin | bunyan",
+    "test": "cross-env NODE_ENV=test mocha --exit --recursive specs/"
   },
   "keywords": [
     "NodeJs",
@@ -17,6 +17,8 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
+    "bunyan": "^1.8.15",
+    "compression": "^1.7.4",
     "connect-mongo": "^4.6.0",
     "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
@@ -24,6 +26,7 @@
     "email-validator": "^2.0.4",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
+    "helmet": "^5.0.1",
     "http-errors": "^2.0.0",
     "mongodb": "^4.3.0",
     "mongoose": "^6.1.6",
